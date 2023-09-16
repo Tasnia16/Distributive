@@ -19,4 +19,30 @@ Our target is to build a monolithic application then we will convert it into a m
 5. we need to run the frontend into PRODUCTION mode and run it from Nginx using the static files.
 
 # Run Locally
+1.Clone the project from here
+
+https://github.com/Tasnia16/Distributive.git
+
+2.Go to the project directory
+cd linkedin
+
+3.Install Minio in your linux machine. Then start the Minio server
+sudo ./minio server /minio
+
+4. Install MongoDB in local machine. Follow this official Documentation to install it. Check your mongodb is running in background
+   sudo systemctl status mongod
+
+5. If mongodb is not activated then run the following command
+   sudo systemctl start mongod
+6. To run backend
+    cd backend
+    npm i
+    npm start  
+    node server.js    
+
+8. To run frontend
+    cd front
+    ng serve
+   
+
 
