@@ -7,5 +7,5 @@ const minioClient = new Minio.Client({
     secretKey: 'wAjUSc3XCcd4N2CPMGQZLWlFRNOX0Bo2Dt2IIOyW',
   });
 
-   //syntax
+   //syntax 
   module.exports.minioClient = minioClient;

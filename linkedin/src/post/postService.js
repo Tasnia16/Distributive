@@ -6,7 +6,6 @@ const imageProcessing=require('./imageController.js');
 const Notification = require('../notification/notificationModel.js');
 
 
-// const express= require('express');
 // const app1=express();
 
 // const multer=require ('multer');

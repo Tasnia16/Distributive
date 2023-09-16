@@ -8,6 +8,7 @@ const multer=require('multer');
 //const upload=multer ({dest:uploads})
 const upload = multer({ dest: 'uploads/' });
 
+
 // const Photo=require("../src/post/imageModel.js");
 // const multer = require('multer');
 // const minio = require('minio');
