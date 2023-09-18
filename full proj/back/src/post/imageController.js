@@ -127,12 +127,17 @@ const Post=require('./postService');
     const objectName = imageName;
     //uploadedImage.objectName;
     module.exports.objectName = objectName;
+
+    console.log(`Fetching image: ${imageName}`);
   
-    minioClient.getObject(bucketName, objectName, (err, dataStream) => {
+    minioClient.getObject(bucketName, imageName, (err, dataStream) => {
       if (err) {
         console.log(err);
         return res.status(500).send('Error retrieving the image.');
       }
+
+      const contentType = getImageContentType(imageName);
+      res.setHeader('Content-Type', contentType);
   
       // Pipe the data stream to the response to serve the image
       dataStream.pipe(res);
@@ -141,4 +146,21 @@ const Post=require('./postService');
 
   };
   
+  function getImageContentType(imageName) {
+    // Implement logic to determine the content type based on the image file extension
+    // Example: Check the file extension and return the corresponding content type
+    const fileExtension = imageName.split('.').pop().toLowerCase();
+    switch (fileExtension) {
+      case 'png':
+        return 'image/png';
+      case 'jpg':
+      case 'jpeg':
+        return 'image/jpeg';
+      case 'gif':
+        return 'image/gif';
+      // Add more cases as needed
+      default:
+        return 'application/octet-stream'; // Default to binary data
+    }
+  }
   
