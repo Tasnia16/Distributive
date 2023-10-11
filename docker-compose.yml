@@ -1,0 +1,118 @@
+version: '3'
+services:
+
+  
+  
+  
+  nginx:
+    build: ./nginx
+    restart: always
+    ports:
+      - "80:80"
+    depends_on:
+      - userservice
+      - front
+
+  
+  front:
+    build: ./newfront
+    stdin_open: true
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    volumes:
+      - /app/node_modules
+      - ./newfront:/app
+  
+  userservice:
+    build: ./back/user
+    env_file:
+      - ./back/user/.env
+    volumes:
+      - /app/node_modules
+      - ./back/user:/app
+    depends_on:
+      - userdb
+
+  userdb:
+    image: mongo:4.4.6
+    restart: always
+    container_name: userdb
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: esha
+      MONGO_INITDB_ROOT_PASSWORD: 1234
+    volumes:
+      - userdb:/data/db
+
+  userdb-mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - 8081:8081
+    environment:
+      ME_CONFIG_MONGODB_SERVER: userdb
+      ME_CONFIG_MONGODB_ADMINUSERNAME: esha
+      ME_CONFIG_BASICAUTH_USERNAME: esha
+      ME_CONFIG_BASICAUTH_PASSWORD: 1234
+      ME_CONFIG_MONGODB_ADMINPASSWORD: 1234
+    depends_on:
+      - userdb
+
+
+
+
+
+  postservice:
+    build: ./back/post
+    ports:
+      - 5001:5001
+    env_file:
+      - ./back/post/.env
+    volumes:
+      - /app/node_modules
+      - ./back/post:/app
+    depends_on:
+      - postdb
+
+  postdb:
+    image: mongo:4.4.6
+    restart: always
+    container_name: postdb
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: esha
+      MONGO_INITDB_ROOT_PASSWORD: 1234
+    volumes:
+      - postdb:/data/db
+
+  postdb-mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - 8082:8081
+    environment:
+      ME_CONFIG_MONGODB_SERVER: postdb
+      ME_CONFIG_MONGODB_ADMINUSERNAME: esha
+      ME_CONFIG_BASICAUTH_USERNAME: esha
+      ME_CONFIG_BASICAUTH_PASSWORD: 1234
+      ME_CONFIG_MONGODB_ADMINPASSWORD: 1234
+    depends_on:
+      - postdb    
+
+  
+  minio:
+    image: minio/minio
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    volumes:
+      - miniodb:/data
+    environment:
+      MINIO_ROOT_USER: esha
+      MINIO_ROOT_PASSWORD: '01973761923'
+    command: server --console-address ":9001" /data    
+
+
+
+volumes:
+  userdb:
+  postdb:
+  miniodb:
