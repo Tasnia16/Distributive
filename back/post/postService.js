@@ -77,7 +77,7 @@ module.exports.getPost = async (req, res) => {
    
     const otherPostsWithImages = await Promise.all(otherPosts.map(async (post) => {
       const imageUrl = post.image
-        ? `http://localhost:4002/image/${post.image}`
+        ? `http://localhost/api/post/image/${post.image}`
         : null;
 
       return { ...post.toObject(), imageUrl }; // syntax problem

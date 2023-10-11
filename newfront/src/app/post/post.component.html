@@ -1,0 +1,20 @@
+<h2>Create a Post</h2>
+
+<form (ngSubmit)="submitPost()">
+  <div>
+    <label for="content">Content:</label>
+    <textarea id="content" [(ngModel)]="post.content" name="content" required></textarea>
+  </div>
+
+
+  <div>
+    <input type="file"  name="image" (change)="onFileSelected($event)" />
+    
+
+  </div>
+
+
+
+  <button type="submit">Submit</button>
+  
+</form>

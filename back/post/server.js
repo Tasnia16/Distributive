@@ -49,7 +49,9 @@ app.use(bodyParser.json());
 
 
 app.use(express.json());
-app.use("/",routes);
+
+
+app.use("/api/post",routes);
 
 
 

@@ -19,12 +19,7 @@ app.use(bodyParser.json());
 const connectDB = require('./config/db')
 connectDB();
 
-app.use("/",routes);
-
-
-app.get('/',()=>{
-  console.log("Hello esha");
-})
+app.use("/api/user",routes);
 
 
 app.listen((port), function check(error)
