@@ -14,7 +14,7 @@ export class LoginComponent {
   password: string = '';
   isLogin: boolean = true;
   erroMessage: string = "";
-  constructor(private router: Router,private http: HttpClient,private sharedService:SharedServiceService) {}
+  constructor(private router: Router, private http: HttpClient, private sharedService: SharedServiceService) { }
   login() {
     console.log(this.email);
     console.log(this.password);
@@ -24,25 +24,24 @@ export class LoginComponent {
     };
 
     //http://localhost:9000/routes/user/login
-        this.http.post("http://localhost/api/user/login", bodyData).subscribe(  (resultData: any) => {
-        console.log(resultData);
-        if (resultData.status)         //ekhan theke mail store
-        {
+    this.http.post("http://localhost/api/user/login", bodyData).subscribe((resultData: any) => {
+      console.log(resultData);
+      if (resultData.status)         //ekhan theke mail store
+      {
 
 
-          this.sharedService.setUserEmail(bodyData.email);
-          console.log("hihi");
-          
-             console.log(bodyData.email);
-          // this.router.navigateByUrl('/home');
-          this.router.navigate(["dashboard"]);
-    
-        } 
-        else
-         {
-          alert("Incorrect Email or Password");
-          console.log("Errror login");
-        }
-      });
-    }
+        this.sharedService.setUserEmail(bodyData.email);
+        console.log("hihi");
+
+        console.log(bodyData.email);
+        // this.router.navigateByUrl('/home');
+        this.router.navigate(["dashboard"]);
+
+      }
+      else {
+        alert("Incorrect Email or Password");
+        console.log("Errror login");
+      }
+    });
+  }
 }

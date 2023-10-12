@@ -5,6 +5,7 @@ import { LoginComponent } from './login/login.component';
 
 import { PostComponent } from './post/post.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { NotificationComponent } from './notification/notification.component';
 
 const routes: Routes = [
 
@@ -12,8 +13,9 @@ const routes: Routes = [
   {path:"register",component:RegisterComponent},
   {path:"login",component:LoginComponent},
   {path:"post",component:PostComponent},
-  // {path:"notification",component:NotificationComponent},
+  {path:"notification",component:NotificationComponent},
   {path:"dashboard",component:DashboardComponent}
+
 
 ];
 

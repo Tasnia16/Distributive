@@ -13,6 +13,7 @@ import { LoginComponent } from './login/login.component';
 //import { DashboardComponent } from './dashboard/dashboard.component';
 import { PostComponent } from './post/post.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { NotificationComponent } from './notification/notification.component';
 //import { DashboardComponent } from './dashboard/dashboard.component';
 // import { DashboardComponent } from './dashboard/dashboard.component';
 
@@ -23,6 +24,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     LoginComponent,
     DashboardComponent,
     PostComponent,
+    NotificationComponent,
     // LoginComponent,
     // PostComponent,
     // NotificationComponent,
