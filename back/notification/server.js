@@ -41,21 +41,6 @@ app.listen((port), function check(error) {
 )
 
 
-app.listen((port), function check(error) {
-    if (error) {
-        console.log("Error............");
-
-    }
-
-    else {
-
-        //cleanNotificationJob();
-
-        console.log(`Server listening on port: ${port}`);
-    }
-}
-)
-
 
 
 app.use(express.json());

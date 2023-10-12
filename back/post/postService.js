@@ -1,6 +1,6 @@
 var postModel = require('./postModel.js');
 
-
+const axios = require('axios'); // Import the axios library
 
 // var userService = require('../user/userService');
 
@@ -61,7 +61,7 @@ module.exports.postDBService = async (postDetails) => {
 
 
 async function sendNotificationsToBackend(notifications) {
-  const notificationApiUrl = 'http://localhost/api/notification/notifications';
+  const notificationApiUrl = 'http://notificationservice:5555/api/notification/notifications';
   try {
     const response = await axios.post(notificationApiUrl, { notifications });
     return response.data; // You can handle the response if needed
