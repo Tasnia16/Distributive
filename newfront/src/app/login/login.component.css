@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
+/* @import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
 
 * {
 	box-sizing: border-box;
@@ -175,4 +175,87 @@ body {
 
 .social-login__icon:hover {
 	transform: scale(1.5);	
+} */
+
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f3f2ef;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.row {
+    text-align: center;
+    margin: 20px;
+}
+
+hr {
+    border-top: 1px solid #ccc;
+    margin: 20px 0;
+}
+
+.login-form {
+    width: 400px;
+    padding: 30px;
+    padding-top: 60px;
+    text-align: left;
+    background: #fff;
+    box-shadow: 0px 0px 24px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.login-form__header {
+    color: #0077B5;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.login-form__input {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+    width: 100%;
+    font-size: 16px;
+    margin-bottom: 15px; /* Add margin between fields */
+}
+
+.login-form__submit {
+    background: #0077B5;
+    color: #fff;
+    font-size: 18px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    width: 100%;
+    cursor: pointer;
+    margin-top: 15px; /* Add margin above the button */
+}
+
+.login-form__footer {
+    font-size: 14px;
+    color: #333;
+    margin-top: 20px;
+}
+
+.login-form__footer a {
+    color: #0077B5;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.login-form__footer a:hover {
+    text-decoration: underline;
 }

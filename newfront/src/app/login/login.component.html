@@ -1,6 +1,6 @@
-<div class="container">
+<!-- <div class="container">
     <div class="row">
-        <!-- <h2>Login</h2> -->
+        
         <hr/>
     </div>
       <div class="row">
@@ -50,4 +50,29 @@
                 </form>
            </div>
       </div>
-  </div>
+  </div> -->
+
+
+  <div class="container">
+    <div class="row">
+        
+        <hr/>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <form class="login-form">
+                <h2 class="login-form__header">Sign in to LinkedIn</h2>
+                <div class="form-group">
+                    <input type="text" class="form-control login-form__input" placeholder="Email" [(ngModel)]="email" [ngModelOptions]="{standalone: true}">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control login-form__input" placeholder="Password" [(ngModel)]="password" [ngModelOptions]="{standalone: true}">
+                </div>
+                <button class="btn btn-primary login-form__submit" (click)="login()">Sign in</button>
+                <div class="login-form__footer">
+                    <p>Don't have an account? <a href="#">Join now</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

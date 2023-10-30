@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
 	<div class="screen">
 		<div class="screen__content">
 			<form class="login">
@@ -54,4 +54,42 @@
      .catch(error=>console.error(error)
 
 	);
-</script>`dock
+</script>`dock -->
+
+
+
+<div class="container">
+    <div class="screen">
+        <div class="screen__content">
+            <form class="registration">
+                <h2 class="registration__header">Join LinkedIn</h2>
+                <p class="registration__subtext">Make the most of your professional life</p>
+                <div class="registration__field">
+                    <input type="text" class="registration__input" placeholder="First Name" [(ngModel)]="firstname" [ngModelOptions]="{standalone: true}">
+                </div>
+
+                <div class="registration__field">
+                    <input type="text" class="registration__input" placeholder="Last Name" [(ngModel)]="lastname" [ngModelOptions]="{standalone: true}">
+                </div>
+
+                <div class="registration__field">
+                    <input type="email" class="registration__input" placeholder="Email Address" [(ngModel)]="email" [ngModelOptions]="{standalone: true}" email>
+                </div>
+                <div class="registration__field">
+                    <input type="password" class="registration__input" placeholder="Password"  [(ngModel)]="password" [ngModelOptions]="{standalone: true}">
+                </div>
+                <button class="button registration__submit" (click)="save()">Agree and Join</button>
+                <p class="registration__terms">
+                    By clicking Agree and Join, you agree to the <a href="#">User Agreement</a>, <a href="#">Privacy Policy</a>, and <a href="#">Cookie Policy</a>.
+                </p>
+            </form>
+        </div>
+        <div class="screen__background">
+            <span class="screen__background__shape screen__background__shape4"></span>
+            <span class="screen__background__shape screen__background__shape3"></span>        
+            <span class="screen__background__shape screen__background__shape2"></span>
+            <span class="screen__background__shape screen__background__shape1"></span>
+        </div>
+        <div id="msg"></div>
+    </div>
+</div>
