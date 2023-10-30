@@ -2,22 +2,22 @@ version: '3'
 services:
 
   nginx:
-    build: ./nginx
+    build: .
     restart: always
     ports:
       - "80:80"
     depends_on:
       - userservice
-      - front
+      # - front
 
-  front:
-    build: ./newfront
-    stdin_open: true
-    environment:
-      - CHOKIDAR_USEPOLLING=true
-    volumes:
-      - /app/node_modules
-      - ./newfront:/app
+  # front:
+  #   build: ./newfront
+  #   stdin_open: true
+  #   environment:
+  #     - CHOKIDAR_USEPOLLING=true
+  #   volumes:
+  #     - /app/node_modules
+  #     - ./newfront:/app
 
   userservice:
     build: ./back/user
